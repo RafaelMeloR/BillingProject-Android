@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/input_client_id_edit_text"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_client_id_edit_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.069" />
+
+    <EditText
+        android:id="@+id/input_client_name_edit_text"
+        android:layout_width="222dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_client_name_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/input_client_id_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/input_client_id_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/input_client_id_edit_text" />
+
+    <EditText
+        android:id="@+id/input_prd_name_edit_text"
+        android:layout_width="221dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_prd_name_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/input_client_name_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_client_name_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/input_client_name_edit_text" />
+
+    <EditText
+        android:id="@+id/input_prd_price_edit_text"
+        android:layout_width="221dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_prd_price_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/input_prd_name_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_prd_name_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/input_prd_name_edit_text" />
+
+    <EditText
+        android:id="@+id/input_prd_qty_edit_text"
+        android:layout_width="221dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_prd_qty_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/input_prd_price_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_prd_price_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/input_prd_price_edit_text" />
+
+    <TextView
+        android:id="@+id/total_text_view"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/total_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/input_prd_qty_edit_text"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/input_prd_qty_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/input_prd_qty_edit_text" />
+
+    <TextView
+        android:id="@+id/client_text_view"
+        android:layout_width="305dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/client_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/total_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/total_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/total_text_view" />
+
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/prev_billing_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/prev_billing_button" />
+
+        <Button
+            android:id="@+id/next_billing_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/next_billing_button" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="360dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/client_text_view"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="@+id/client_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/client_text_view">
+
+        <Button
+            android:id="@+id/total_input_billing_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_input_billing_button" />
+
+        <Button
+            android:id="@+id/total_record_billing_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_record_billing_button" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">StoryProject</string>
+    <string name="input_client_id_edit_text">Please Enter Client ID</string>
+    <string name="input_client_name_edit_text">Please Enter Client Name</string>
+    <string name="input_prd_name_edit_text">Please Enter Prd Name</string>
+    <string name="input_prd_price_edit_text">Please Enter Prd Price</string>
+    <string name="input_prd_qty_edit_text">Please Enter Prd Qty</string>
+
+    <string name="total_text_view"></string>
+    <string name="client_text_view"></string>
+
+    <string name="total_input_billing_button">TOTAL INPUT BILLING</string>
+    <string name="total_record_billing_button">TOTAL RECORD BILLING</string>
+    <string name="prev_billing_button">PREV BILLING</string>
+    <string name="next_billing_button">NEXT BILLING</string>
+</resources>

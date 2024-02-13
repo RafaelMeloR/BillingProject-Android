@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/input_client_id_edit_text"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_client_id_edit_text"
+        android:layout_gravity="center|top" />
+
+    <EditText
+        android:id="@+id/input_client_name_edit_text"
+        android:layout_width="222dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_client_name_edit_text" />
+
+    <EditText
+        android:id="@+id/input_prd_name_edit_text"
+        android:layout_width="221dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_prd_name_edit_text"
+        android:layout_gravity="center|bottom" />
+
+    <EditText
+        android:id="@+id/input_prd_price_edit_text"
+        android:layout_width="221dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_prd_price_edit_text"
+        android:layout_gravity="right|top" />
+
+    <EditText
+        android:id="@+id/input_prd_qty_edit_text"
+        android:layout_width="221dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/input_prd_qty_edit_text"
+        android:layout_gravity="right|center" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="252dp"
+        android:layout_height="386dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/total_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/total_text_view" />
+
+        <TextView
+            android:id="@+id/client_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/client_text_view" />
+
+
+        <Button
+            android:id="@+id/total_input_billing_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_input_billing_button" />
+
+        <Button
+            android:id="@+id/total_record_billing_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/total_record_billing_button" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/prev_billing_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/prev_billing_button" />
+
+            <Button
+                android:id="@+id/next_billing_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/next_billing_button" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>
