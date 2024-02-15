@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/input_client_id_edit_text"
+        android:id="@+id/input_client_id_edit_text_billingActivity"
         android:layout_width="220dp"
         android:layout_height="50dp"
         android:ems="10"
@@ -16,7 +16,7 @@
         android:layout_gravity="center|top" />
 
     <EditText
-        android:id="@+id/input_client_name_edit_text"
+        android:id="@+id/input_client_name_edit_text_billingActivity"
         android:layout_width="222dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
@@ -26,7 +26,7 @@
         android:text="@string/input_client_name_edit_text" />
 
     <EditText
-        android:id="@+id/input_prd_name_edit_text"
+        android:id="@+id/input_prd_name_edit_text_billingActivity"
         android:layout_width="221dp"
         android:layout_height="50dp"
         android:layout_marginTop="24dp"
@@ -36,7 +36,7 @@
         android:layout_gravity="center|bottom" />
 
     <EditText
-        android:id="@+id/input_prd_price_edit_text"
+        android:id="@+id/input_prd_price_edit_text_billingActivity"
         android:layout_width="221dp"
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
@@ -46,7 +46,7 @@
         android:layout_gravity="right|top" />
 
     <EditText
-        android:id="@+id/input_prd_qty_edit_text"
+        android:id="@+id/input_prd_qty_edit_text_billingActivity"
         android:layout_width="221dp"
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
@@ -89,6 +89,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/total_record_billing_button" />
+
+        <Button
+            android:id="@+id/billing_details_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/billing_details_button" />
 
         <LinearLayout
             android:layout_width="match_parent"

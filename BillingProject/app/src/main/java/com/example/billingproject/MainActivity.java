@@ -1,7 +1,13 @@
 package com.example.billingproject;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private  Button total_record_billing_button;
     private Button  prev_billing_button;
     private Button  next_billing_button;
+    private  Button billing_details_button;
     private int currentIndex=0;
     public static String TAG="Course Project";
     public static String KEY_INDEX = "index";
@@ -44,23 +51,23 @@ public class MainActivity extends AppCompatActivity {
             currentIndex=savedInstanceState.getInt(KEY_INDEX);
         }
      //Get the view of input_client_id_edit_text
-        input_client_id_edit_text=(EditText) findViewById(R.id.input_client_id_edit_text);
+        input_client_id_edit_text=(EditText) findViewById(R.id.input_client_id_edit_text_billingActivity);
         input_client_id_edit_text.setText(Integer.toString(all_billing[currentIndex].getClient_id()));
 
         //Get the view of input_client_name_edit_text
-        input_client_name_edit_text=(EditText) findViewById(R.id.input_client_name_edit_text);
+        input_client_name_edit_text=(EditText) findViewById(R.id.input_client_name_edit_text_billingActivity);
         input_client_name_edit_text.setText(all_billing[currentIndex].getClient_name());
 
         //Get the view of input_prd_name_edit_text
-        input_prd_name_edit_text=(EditText) findViewById(R.id.input_prd_name_edit_text);
+        input_prd_name_edit_text=(EditText) findViewById(R.id.input_prd_name_edit_text_billingActivity);
         input_prd_name_edit_text.setText(all_billing[currentIndex].getProduct_name());
 
        //Get the view of input_prd_price_edit_text
-        input_prd_price_edit_text=(EditText) findViewById(R.id.input_prd_price_edit_text);
+        input_prd_price_edit_text=(EditText) findViewById(R.id.input_prd_price_edit_text_billingActivity);
         input_prd_price_edit_text.setText(Double.toString(+all_billing[currentIndex].getPrd_price()));
 
         //Get the view of input_prd_qty_edit_text
-        input_prd_qty_edit_text=(EditText) findViewById(R.id.input_prd_qty_edit_text);
+        input_prd_qty_edit_text=(EditText) findViewById(R.id.input_prd_qty_edit_text_billingActivity);
         input_prd_qty_edit_text.setText(Integer.toString(all_billing[currentIndex].getPrd_qty()));
 
         //Get the view of total_text_view
@@ -106,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         total_input_billing_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                client_text_view.setText("View Total Billing: "+all_billing[currentIndex].calculateBilling());
+                total_text_view.setText("View Total Billing: "+all_billing[currentIndex].calculateBilling());
             }
         });
 
@@ -115,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         total_record_billing_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                total_text_view.setText("Client: "+all_billing[currentIndex].getClient_id()+" "+
+                client_text_view.setText("Client: "+all_billing[currentIndex].getClient_id()+" "+
                         all_billing[currentIndex].getClient_name()+" "+all_billing[currentIndex].getProduct_name()+" "
                         +all_billing[currentIndex].calculateBilling());
                 Toast.makeText(MainActivity.this, "Client: "+all_billing[currentIndex].getClient_id()+" "+
@@ -124,8 +131,63 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Get the view of billing_details_button
+        billing_details_button = (Button) findViewById(R.id.billing_details_button);
+        billing_details_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //The first approach is to call startActivity as unidirectional communication
+                //Only used when sending data from parent activity to child activity
+                int clientId  = all_billing[currentIndex].getClient_id();
+                String clientName  = all_billing[currentIndex].getClient_name();
+                String prdName  = all_billing[currentIndex].getProduct_name();
+                double prdPrice = all_billing[currentIndex].getPrd_price();
+                int prdQty=all_billing[currentIndex].getPrd_qty();
+                //calling the coding extra
+                Intent intent = BillingActivity.newIntent(MainActivity.this, clientId,
+                        clientName, prdName,prdPrice,prdQty);
+                //startActivity(intent);
+                StartActivityIntent.launch(intent);
+            }
+        });
+
 
     }
+
+    ActivityResultLauncher<Intent> StartActivityIntent = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    if(result.getResultCode() != Activity.RESULT_OK)
+                    {
+                        return ;
+                    }
+                    else
+                    {
+                        Billing billingUpdateInfo= BillingActivity.sendMessageBillingUpdateResult(result.getData());
+                        Toast.makeText(MainActivity.this, "Update Client: "+billingUpdateInfo.getClient_id()+" "+
+                                billingUpdateInfo.getClient_name()+" "+billingUpdateInfo.getProduct_name()+" "
+                                +billingUpdateInfo.calculateBilling(), Toast.LENGTH_SHORT).show();
+
+                        all_billing[currentIndex].setClient_id(billingUpdateInfo.getClient_id());
+                        all_billing[currentIndex].setClient_name(billingUpdateInfo.getClient_name());
+                        all_billing[currentIndex].setProduct_name(billingUpdateInfo.getProduct_name());
+                        all_billing[currentIndex].setPrd_price(billingUpdateInfo.getPrd_price());
+                        all_billing[currentIndex].setPrd_qty(billingUpdateInfo.getPrd_qty());
+
+                        input_client_id_edit_text.setText(Integer.toString(all_billing[currentIndex].getClient_id()));
+                        input_client_name_edit_text.setText(all_billing[currentIndex].getClient_name());
+                        input_prd_name_edit_text.setText(all_billing[currentIndex].getProduct_name());
+                        input_prd_name_edit_text.setText(all_billing[currentIndex].getProduct_name());
+                        input_prd_price_edit_text.setText(Double.toString(+all_billing[currentIndex].getPrd_price()));
+                        input_prd_qty_edit_text.setText(Integer.toString(all_billing[currentIndex].getPrd_qty()));
+
+
+                    }
+                }
+            }
+    );
 
     @Override
     public  void onStart()

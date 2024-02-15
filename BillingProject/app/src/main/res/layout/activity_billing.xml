@@ -15,10 +15,10 @@
         android:text="@string/input_client_id_edit_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.586"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintVertical_bias="0.08" />
 
     <EditText
         android:id="@+id/input_client_name_edit_text_billingActivity"
@@ -71,80 +71,71 @@
         app:layout_constraintStart_toStartOf="@+id/input_prd_price_edit_text_billingActivity"
         app:layout_constraintTop_toBottomOf="@+id/input_prd_price_edit_text_billingActivity" />
 
-    <TextView
-        android:id="@+id/total_text_view"
-        android:layout_width="305dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/total_text_view"
-        app:layout_constraintEnd_toEndOf="@+id/input_prd_qty_edit_text_billingActivity"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="@+id/input_prd_qty_edit_text_billingActivity"
-        app:layout_constraintTop_toBottomOf="@+id/input_prd_qty_edit_text_billingActivity" />
-
-    <TextView
-        android:id="@+id/client_text_view"
-        android:layout_width="305dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/client_text_view"
-        app:layout_constraintEnd_toEndOf="@+id/total_text_view"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/total_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/total_text_view" />
-
-    <LinearLayout
-        android:layout_width="365dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-        <Button
-            android:id="@+id/prev_billing_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/prev_billing_button" />
-
-        <Button
-            android:id="@+id/next_billing_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/next_billing_button" />
-    </LinearLayout>
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="360dp"
         android:layout_height="150dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="56dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/client_text_view"
-        app:layout_constraintHorizontal_bias="0.527"
-        app:layout_constraintStart_toStartOf="@+id/client_text_view"
-        app:layout_constraintTop_toBottomOf="@+id/client_text_view">
+        app:layout_constraintEnd_toEndOf="@+id/input_prd_qty_edit_text_billingActivity"
+        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintStart_toStartOf="@+id/input_prd_qty_edit_text_billingActivity"
+        app:layout_constraintTop_toBottomOf="@+id/input_prd_qty_edit_text_billingActivity">
 
         <Button
-            android:id="@+id/total_input_billing_button"
+            android:id="@+id/billing_update_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/total_input_billing_button" />
-
-        <Button
-            android:id="@+id/total_record_billing_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/total_record_billing_button" />
-
-        <Button
-            android:id="@+id/billing_details_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/billing_details_button" />
+            android:text="@string/billing_update_button" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="67dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/client_id_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/input_client_id_edit_text_billingActivity"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/client_name_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/input_client_name_edit_text_billingActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/product_name_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/input_prd_name_edit_text_billingActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/product_price_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/input_prd_price_edit_text_billingActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="12dp"
+        android:text="@string/product_qty_text_view"
+        app:layout_constraintEnd_toStartOf="@+id/input_prd_qty_edit_text_billingActivity"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,14 @@
 
     <string name="total_input_billing_button">TOTAL INPUT BILLING</string>
     <string name="total_record_billing_button">TOTAL RECORD BILLING</string>
+    <string name="billing_details_button">BILLING DETAILS</string>
     <string name="prev_billing_button">PREV BILLING</string>
     <string name="next_billing_button">NEXT BILLING</string>
+
+    <string name="client_id_text_view">Client ID</string>
+    <string name="client_name_text_view">Client Name</string>
+    <string name="product_name_text_view">Product Name</string>
+    <string name="product_price_text_view">Prouduct Price</string>
+    <string name="product_qty_text_view">Product Qty</string>
+    <string name="billing_update_button">BILLING UPDATE</string>
 </resources>
